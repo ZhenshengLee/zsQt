@@ -1,0 +1,125 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "zs: gdbrun cpp",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/build/bin/zswidgets",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [
+                {
+                    "name": "OD_LOG_LEVEL",
+                    "value": "t"
+                }
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "zs: pdbrun python",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "zs: remote gdbrun cpp",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/home/zs/ros1_ws/devel/lib/od_ros/od_ros_node",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "/home/zs/ros1_ws/src/pb_floor_clean",
+            "environment": [
+                {
+                    "name": "OD_LOG_LEVEL",
+                    "value": "t"
+                },
+                {
+                    "name": "OD_ENABLE_LOG_TO_A_FILE",
+                    "value": "./log/zs.log"
+                },
+                {
+                    "name": "OD_ENABLE_LOG_TO_STDOUT",
+                    "value": "1"
+                }
+            ],
+            "externalConsole": false,
+            "pipeTransport": {
+                "pipeCwd": "/usr/bin",
+                "pipeProgram": "/usr/bin/ssh",
+                "pipeArgs": [
+                    "zs@192.168.137.1"
+                ],
+                // "pipeArgs": [
+                //     "nvidia@192.168.8.1"
+                // ],
+                "debuggerPath": "/usr/bin/gdb"
+            },
+            "sourceFileMap": {
+                // "remote": "local"
+                "/home/zs/ros1_ws/src/pb_floor_clean": "${workspaceRoot}"
+            },
+            "linux": {
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            },
+        },
+        {
+            "name": "zs: remote gdbrun helloworld",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/home/zs/ros1_ws/src/pb_floor_clean/example/helloworld/build/bin/helloworld",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "/home/zs/ros1_ws/src/pb_floor_clean",
+            "environment": [
+            ],
+            "externalConsole": false,
+            "pipeTransport": {
+                "pipeCwd": "/usr/bin",
+                "pipeProgram": "/usr/bin/ssh",
+                "pipeArgs": [
+                    "zs@192.168.137.1"
+                ],
+                // "pipeArgs": [
+                //     "nvidia@192.168.8.1"
+                // ],
+                "debuggerPath": "/usr/bin/gdb"
+            },
+            "sourceFileMap": {
+                // "remote": "local"
+                "/home/zs/ros1_ws/src/pb_floor_clean": "${workspaceRoot}"
+            },
+            "linux": {
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            }
+        }
+    ]
+}
